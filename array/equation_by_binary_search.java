@@ -21,6 +21,7 @@ public class equation_by_binary_search {
             long c=(long)Math.pow(mid,k);
             if(c<=n)
             {
+
                 check=mid;
                 start=mid+1;
             }
