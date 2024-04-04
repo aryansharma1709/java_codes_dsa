@@ -1,7 +1,7 @@
 package stack;
 import java.util.*;
 public class find_the_celebrity {
-//    indian idol algorithm (elemination algorithm) stack problem
+//    indian idol algorithm (elemination algorithm) stack problems
     public static void main(String[] args) {
         int [][] graph={{0,1,1,1},{1,0,1,1},{0,0,0,0},{1,1,1,0}};
          System.out.println(celebrity(graph));
