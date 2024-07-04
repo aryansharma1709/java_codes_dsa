@@ -13,6 +13,8 @@ class node{
 public class linked_list {
 //-----------------convert the array into linkedlist-------------------------
     private static node convertArr2ll(int []arr){
+        if(arr.length==0)
+            return null;
         node head=new node(arr[0]);
         node mover=head;
 //        System.out.println(mover);
@@ -120,9 +122,62 @@ public class linked_list {
         return head;
     }
 //------------------------------------------------------------------------------------------
+//--------------------------------Insert head in linked list-------------------------------
+    private static node insertHead(node head,int val)
+    {
+      node temp =new node(val);
+      temp.next=head;
+      return temp;
+    }
+//-----------------------------------------------------------------------------------
+//------------------------------Insert at the Last----------------------------------
+    private static node insertLast(node head,int val)
+    {
+        if(head==null)
+            return new node(val);
+        node temp=head;
+        while(temp.next!=null)
+        {
+            temp=temp.next;
+        }
+        node last=new node(val);
+        temp.next=last;
+        return head;
+    }
+//----------------------------------------------------------------------------------
+//-----------------------Insert element at kth position----------------------------
+    private static node insert_Kth_position(node head, int val,int k)
+    {
+        if(head==null)
+        {
+            if(k==1)
+                return new node(val);
+            else
+                return null;
+        }
+        else if (k==1)
+        {
+            return insertHead(head,val);
+        }
+        else if(k>lengthNode(head))
+            return null;
+//        else if(k==lengthNode(head))
+//            return insertLast(head,val);
+        node temp= head;
+        k=k-2;
+      while(k-->0)
+      {
+          temp=temp.next;
+      }
+      node ele=new node(val);
+        ele.next=temp.next;
+      temp.next=ele;
+      return head;
+    }
+//---------------------------------------------------------------------------------
 //------------------------------MAIN-----------------------------------------------------
     public static void main(String[] args) {
-     int [] arr={12,5,6,3,4};
+     int [] arr={10,20,30,40,50,60};
      node head=convertArr2ll(arr);
 //     System.out.println(head.data);
 //        head=removeHead(head);
@@ -131,6 +186,15 @@ public class linked_list {
 //        head=removeTail(head);
 //        head=delete_kth_element(head,4);
 //        head=delete_by_value(head,3);
+//          head=insertHead(head,100);
+//         AGAR ME KARNA CHAHU KI MERA DIRECT HEAD INSERTHO JAYE TO EK METHODS YE HAI
+//         node preHead=head;
+//         head =new node(100);
+//           head.next=preHead;
+//        Last me insert kar ho to
+//        head= insertLast(head,20);
+//        Kth POSITION PAR ELEMENT INSERTION
+        head=insert_Kth_position(head,70,3);
        node temp=head;
 //     System.out.println(elementPresnt(head,15));
      while(temp!=null)
