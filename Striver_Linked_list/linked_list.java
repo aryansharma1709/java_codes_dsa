@@ -194,7 +194,7 @@ public class linked_list {
 //        Last me insert kar ho to
 //        head= insertLast(head,20);
 //        Kth POSITION PAR ELEMENT INSERTION
-        head=insert_Kth_position(head,70,3);
+//        head=insert_Kth_position(head,70,3);
        node temp=head;
 //     System.out.println(elementPresnt(head,15));
      while(temp!=null)
